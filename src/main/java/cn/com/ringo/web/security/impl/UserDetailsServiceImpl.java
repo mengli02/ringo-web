@@ -24,6 +24,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		logger.info("username:" + username);
 		
 		SysUser user = new SysUser();
+		
+		user.setUsername("123456");
+		user.setPassword("123456");
+		
 		/*
 		 * List<SimpleGrantedAuthority> authorities = new ArrayList<>(); for (Role role
 		 * : user.getRoles()) { authorities.add(new

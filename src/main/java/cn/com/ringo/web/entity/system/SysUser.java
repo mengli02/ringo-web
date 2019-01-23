@@ -20,6 +20,8 @@ public class SysUser implements UserDetails{
 	private static final long serialVersionUID = 5280180420703888206L;
 
 	private Long id;
+	private String username;
+	private String password;
 	
     private List<Role> roles;
     
@@ -41,14 +43,22 @@ public class SysUser implements UserDetails{
 
 	@Override
 	public String getPassword() {
-		return null;
+		return this.password;
 	}
 
 	@Override
 	public String getUsername() {
-		return null;
+		return this.username;
 	}
     
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Override
 	public boolean isAccountNonExpired() {
 		return true;
