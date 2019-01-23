@@ -20,9 +20,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 //@EnableGlobalMethodSecurity(prePostEnabled = true)  //  启用方法级别的权限认证
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class FormSecurityConfig extends WebSecurityConfigurerAdapter {
 	
-	private static Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
+	private static Logger logger = LoggerFactory.getLogger(FormSecurityConfig.class);
 	
 	@Autowired
 	private UserDetailsService userDetailsService;
