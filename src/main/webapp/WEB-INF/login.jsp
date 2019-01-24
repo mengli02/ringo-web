@@ -9,6 +9,7 @@
     	<link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
 	</head>
 <body>
+<div>登陆</div>
 	<div class="container">
 		<form class="form-signin" method="post" action="authentication/login">
 			<h2 class="form-signin-heading">Please sign in</h2>

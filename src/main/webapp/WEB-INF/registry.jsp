@@ -9,8 +9,9 @@
     	<link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
 	</head>
 <body>
+<div>注册</div>
 	<div class="container">
-		<form class="form-signin" method="post" action="/registry">
+		<form class="form-signin" method="post" action="system/sysuser/inster">
 			<h2 class="form-signin-heading">Please sign in</h2>
 			<p>
 				<label for="username" class="sr-only">Username</label> 
@@ -22,7 +23,6 @@
 				<input type="password" id="password" name="password" class="form-control"
 					placeholder="Password" required>
 			</p>
-			<input name="_csrf" type="hidden" value="e94f1f08-1269-40ac-a4e6-4c4e6eaccf02" />
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
 		</form>
 </body>

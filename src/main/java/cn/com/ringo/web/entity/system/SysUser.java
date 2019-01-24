@@ -1,44 +1,47 @@
 package cn.com.ringo.web.entity.system;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 /**
  * 
  * @author dream.li
  *
  */
+@Entity
+@Table(name = "sys_user")
 public class SysUser implements UserDetails{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5280180420703888206L;
-
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	@Column(name = "username",nullable = false)
 	private String username;
+	
+	@Column(name = "password",nullable = false)
 	private String password;
 	
-    private List<Role> roles;
-    
-    
-//	@Override
-//	public Collection<? extends GrantedAuthority> getAuthorities() {
-//		List<GrantedAuthority> auths = new ArrayList<>();
-//        List<Role> roles = this.getRoles();
-//        for (Role role : roles) {
-//            auths.add(new SimpleGrantedAuthority(role.getName()));
-//        }
-//        return auths;
-//	}
+	@Transient
+	Collection<? extends GrantedAuthority> authorities = null;
 
     @Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return null;
+		return this.authorities;
 	}
 
 	@Override
@@ -87,12 +90,8 @@ public class SysUser implements UserDetails{
 		this.id = id;
 	}
 
-	public List<Role> getRoles() {
-		return roles;
+	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+		this.authorities = authorities;
 	}
-
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
-	}
-
+	
 }

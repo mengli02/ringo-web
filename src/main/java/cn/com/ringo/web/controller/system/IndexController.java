@@ -3,6 +3,8 @@ package cn.com.ringo.web.controller.system;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import cn.com.ringo.web.service.system.SysUserService;
+
 @Controller
 public class IndexController {
 
