@@ -76,15 +76,12 @@
 	<header id="header">
 
 		<div id="logo-group">
-			<span id="logo"> <img
-				src="${pageContext.request.contextPath}/static/smart/img/logo.png"
-				alt="SmartAdmin">
+			<span id="logo"> <img src="${pageContext.request.contextPath}/static/smart/img/logo.png" alt="图书管理系统">
 			</span>
 		</div>
 
-		<span id="extr-page-header-space"> <span
-			class="hidden-mobile hidden-xs">Need an account?</span> <a
-			href="register.html" class="btn btn-danger">Create account</a>
+		<span id="extr-page-header-space"> <span class="hidden-mobile hidden-xs">需要创建一个账号吗?</span> 
+		<a href="register.html" class="btn btn-danger"> 创建 账号 </a>
 		</span>
 
 	</header>
@@ -97,17 +94,15 @@
 			<div class="row">
 				<div
 					class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
-					<h1 class="txt-color-red login-header-big">SmartAdmin</h1>
+					<h1 class="txt-color-red login-header-big">图书管理系统</h1>
 					<div class="hero">
 
 						<div class="pull-left login-desc-box-l">
-							<h4 class="paragraph-header">It's Okay to be Smart.
-								Experience the simplicity of SmartAdmin, everywhere you go!</h4>
-							<div class="login-app-icons">
-								<a href="javascript:void(0);" class="btn btn-danger btn-sm">Frontend
-									Template</a> <a href="javascript:void(0);"
-									class="btn btn-danger btn-sm">Find out more</a>
-							</div>
+							<h4 class="paragraph-header">这是一个图书管理系统</h4>
+							<!-- <div class="login-app-icons">
+								<a href="javascript:void(0);" class="btn btn-danger btn-sm"></a> 
+								<a href="javascript:void(0);" class="btn btn-danger btn-sm"></a>
+							</div> -->
 						</div>
 
 						<img
@@ -118,17 +113,12 @@
 
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-							<h5 class="about-heading">About SmartAdmin - Are you up to
-								date?</h5>
-							<p>Sed ut perspiciatis unde omnis iste natus error sit
-								voluptatem accusantium doloremque laudantium, totam rem aperiam,
-								eaque ipsa.</p>
+							<h5 class="about-heading"></h5>
+							<p></p>
 						</div>
 						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-							<h5 class="about-heading">Not just your average template!</h5>
-							<p>Et harum quidem rerum facilis est et expedita distinctio.
-								Nam libero tempore, cum soluta nobis est eligendi voluptatem
-								accusantium!</p>
+							<h5 class="about-heading"></h5>
+							<p></p>
 						</div>
 					</div>
 
@@ -137,43 +127,40 @@
 					<div class="well no-padding">
 						<form action="authentication/login" id="login-form" method="post"
 							class="smart-form client-form">
-							<header> Sign In </header>
-
+							<header> 登 陆 </header>
 							<fieldset>
-
 								<section>
-									<label class="label">username</label> <label class="input">
+									<label class="label">用户名</label> <label class="input">
 										<i class="icon-append fa fa-user"></i> <input type="text"
 										name="username"> <b class="tooltip tooltip-top-right"><i
-											class="fa fa-user txt-color-teal"></i> Please enter username</b>
+											class="fa fa-user txt-color-teal"></i> 请输入用户名</b>
 									</label>
 								</section>
 
 								<section>
-									<label class="label">Password</label> <label class="input">
+									<label class="label">密码</label> <label class="input">
 										<i class="icon-append fa fa-lock"></i> <input type="password"
 										name="password"> <b class="tooltip tooltip-top-right"><i
-											class="fa fa-lock txt-color-teal"></i> Enter your password</b>
+											class="fa fa-lock txt-color-teal"></i> 请输入密码</b>
 									</label>
 									<div class="note">
-										<a href="forgotpassword.html">Forgot password?</a>
+										<a href="forgotpassword.html"> 忘记密码?</a>
 									</div>
 								</section>
 
 								<section>
 									<label class="checkbox"> <input type="checkbox"
-										name="remember" checked=""> <i></i>Stay signed in
+										name="remember" checked=""> <i></i>记住登陆
 									</label>
 								</section>
 							</fieldset>
 							<footer>
-								<button type="submit" class="btn btn-primary">Sign in</button>
+								<button type="submit" class="btn btn-primary">登陆</button>
 							</footer>
 						</form>
-
 					</div>
 
-					<h5 class="text-center">- Or sign in using -</h5>
+					<!-- <h5 class="text-center">- Or sign in using -</h5>
 
 					<ul class="list-inline text-center">
 						<li><a href="javascript:void(0);"
@@ -185,7 +172,7 @@
 						<li><a href="javascript:void(0);"
 							class="btn btn-warning btn-circle"><i class="fa fa-linkedin"></i></a>
 						</li>
-					</ul>
+					</ul> -->
 
 				</div>
 			</div>
