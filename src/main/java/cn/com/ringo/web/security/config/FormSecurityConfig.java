@@ -33,12 +33,15 @@ public class FormSecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers("/static/**","/system/**");
 	}
-
+	
+	/**
+	 * 
+	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/registry","/sign_up","/system/sysuser/inster").permitAll().anyRequest().authenticated().and()
-				.formLogin().loginPage("/sign_in").loginProcessingUrl("/authentication/login")
-				.defaultSuccessUrl("/index", true).failureUrl("/sign_in?error").permitAll()
+		http.authorizeRequests().antMatchers("/login","/registry","/system/sysuser/inster").permitAll().anyRequest().authenticated().and()
+				.formLogin().loginPage("/login").loginProcessingUrl("/authentication/login")
+				.defaultSuccessUrl("/index", true).failureUrl("/login?error").permitAll()
 			.and().csrf().disable();
 	}
 

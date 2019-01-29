@@ -1,21 +1,34 @@
 package cn.com.ringo.web.controller.system;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-import cn.com.ringo.web.service.system.SysUserService;
-
-@Controller
+/**
+ * 
+ * @author dream.li
+ *
+ */
+@RestController
 public class IndexController {
 
+	/**
+	 * 进入主页
+	 * @return
+	 */
 	@RequestMapping("/index")
 	public String index() {
 		return "index";
 	}
 	
-	@RequestMapping("/sign_in")
-	public String sign_in() {
-		return "login";
+	/**
+	 * 登陆页
+	 * @return
+	 */
+	@RequestMapping("/login")
+	public ModelAndView sign_in() {
+		ModelAndView mv = new ModelAndView("login");
+		return mv;
 	}
 	
 	@RequestMapping("/sign_up")

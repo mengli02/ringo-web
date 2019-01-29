@@ -1,16 +1,22 @@
 package cn.com.ringo.web.controller.system;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller("/authentication")
+/**
+ * 授权
+ * @author dream.li
+ *
+ */
+@RestController
 public class Authentication {
 	
-	@RequestMapping("/login")
-	public void login() {
-		System.out.println("登陆认证");
+	/*
+	 * @PostMapping("/authentication/login") public void login() {
+	 * System.out.println("登陆认证");
+	 * 
+	 * }
+	 */
 		
-	}
-	
 	
 }
