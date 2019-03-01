@@ -66,15 +66,15 @@
 		</dependency>
 	
 		<!--避坑包-->
-		<dependency>
+		<!-- <dependency>
           	<groupId>net.sourceforge.nekohtml</groupId>
           	<artifactId>nekohtml</artifactId>
-      	</dependency>
+      	</dependency> -->
 		<!--解析html包-->
-      	<dependency>
+      	<!-- <dependency>
           	<groupId>org.springframework.boot</groupId>
           	<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
+		</dependency> -->
 		
 		<!-- -->
 		<dependency>
@@ -82,18 +82,18 @@
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 
-
-		<!-- <dependency>
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
-		</dependency> -->
+		</dependency>
 
 		<!--用于编译jsp -->
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
 			<scope>provided</scope>
-		</dependency> -->
+		</dependency>
+		
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>jquery</artifactId>

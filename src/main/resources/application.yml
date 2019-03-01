@@ -18,18 +18,21 @@ spring:
     #配置不同环境
   profiles:
     active: dev
-    
-  thymeleaf:
-    cache: false
-    check-template: true
-    check-template-location: true
-    enabled: true
-    encoding: utf-8
+  
+  mvc:    view:      prefix: /WEB-INF/
+      suffix: .jsp
+      
+  #thymeleaf:
+  #  cache: false
+  #  check-template: true
+  #  check-template-location: true
+  #  enabled: true
+  #  encoding: utf-8
     #去掉thymeleaf的严格的模板校验
-    #mode: HTML5    mode: LEGACYHTML5
-    prefix: /WEB-INF/
-    suffix: .html
-    excluded-view-names:
+    #mode: HTML5  #  mode: LEGACYHTML5
+  #  prefix: /WEB-INF/
+  #  suffix: .html
+  #  excluded-view-names:
   groovy:
     template:      cache: false
     
