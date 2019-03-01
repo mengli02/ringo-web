@@ -1,15 +1,9 @@
 package cn.com.ringo.web.controller.system;
 
-import static org.hamcrest.CoreMatchers.notNullValue;
-
 import java.util.List;
-
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import cn.com.ringo.web.entity.system.SysUser;
 import cn.com.ringo.web.service.system.SysUserService;
 import io.swagger.annotations.Api;

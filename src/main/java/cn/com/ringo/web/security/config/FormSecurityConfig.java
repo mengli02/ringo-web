@@ -57,7 +57,6 @@ public class FormSecurityConfig extends WebSecurityConfigurerAdapter {
 	/**
 	 * 
 	 */
-	@SuppressWarnings("deprecation")
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		/**
