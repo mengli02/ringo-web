@@ -1,0 +1,11 @@
+#测试环境配置
+spring:
+#数据库连接配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/ringo-web?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+

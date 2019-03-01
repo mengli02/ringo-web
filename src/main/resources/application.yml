@@ -15,6 +15,10 @@ security:
 
 #设置跳转页面前缀和后缀
 spring:
+    #配置不同环境
+  profiles:
+    active: dev
+    
   thymeleaf:
     cache: false
     check-template: true
@@ -23,7 +27,7 @@ spring:
     encoding: utf-8
     #去掉thymeleaf的严格的模板校验
     #mode: HTML5    mode: LEGACYHTML5
-    prefix: classpath:/templates/
+    prefix: /WEB-INF/
     suffix: .html
     excluded-view-names:
   groovy:
@@ -35,14 +39,7 @@ spring:
         #排除那个目录的文件不需要restart 
     #spring.devtools.restart.exclude=src/main/webapp
 
-#数据库连接配置
   datasource:
-    url: jdbc:mysql://localhost:3306/ringo-web?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
-    driver-class-name: com.mysql.cj.jdbc.Driver
-#spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-    username: root
-    password: 123456
-    type: com.alibaba.druid.pool.DruidDataSource
     dbcp2:
       initial-size: 1
       max-wait-millis: 60000      min-idle: 1
