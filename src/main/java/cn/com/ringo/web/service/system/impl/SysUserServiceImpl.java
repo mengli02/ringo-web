@@ -1,5 +1,7 @@
 package cn.com.ringo.web.service.system.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,11 @@ public class SysUserServiceImpl implements SysUserService {
 	SysUserRepository sysUserRepository;
 	
 	@Override
+	public List<SysUser> findAll() {
+		return sysUserRepository.findAll();
+	}
+	
+	@Override
 	public SysUser save(SysUser sysUser) {
 		sysUser.setPassword(new BCryptPasswordEncoder().encode(sysUser.getPassword()));
 		return sysUserRepository.save(sysUser);
@@ -28,6 +35,16 @@ public class SysUserServiceImpl implements SysUserService {
 	@Override
 	public SysUser findByUsername(String username) {
 		return sysUserRepository.findByUsername(username);
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		sysUserRepository.deleteById(id);
+	}
+
+	@Override
+	public void delete(SysUser sysUser) {
+		sysUserRepository.delete(sysUser);
 	}
 	
 }
