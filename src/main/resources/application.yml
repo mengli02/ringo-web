@@ -1,0 +1,65 @@
+#设置端口
+server:
+  port: 8080
+  servlet:
+        #项目统一基路径
+    context-path: /demo
+    jsp:
+      init-parameters:
+        development: true
+    
+    
+#设置是否启用spring security
+security:
+  basic:    enabled: false
+
+#设置跳转页面前缀和后缀
+spring:
+  thymeleaf:
+    cache: false
+    check-template: true
+    check-template-location: true
+    enabled: true
+    encoding: utf-8
+    #去掉thymeleaf的严格的模板校验
+    #mode: HTML5    mode: LEGACYHTML5
+    prefix: classpath:/templates/
+    suffix: .html
+    excluded-view-names:
+  groovy:
+    template:      cache: false
+    
+  devtools:    restart:          exclude: src/main/java,src/main/webapp
+         #添加那个目录的文件需要restart
+    #spring.devtools.restart.additional-paths=src/main/java,src/main/webapp
+        #排除那个目录的文件不需要restart 
+    #spring.devtools.restart.exclude=src/main/webapp
+
+#数据库连接配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/ringo-web?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    dbcp2:
+      initial-size: 1
+      max-wait-millis: 60000      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      soft-min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+  
+  jpa:    hibernate:
+      naming:        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+      #use-new-id-generator-mappings: 
+    show-sql: true
+  
+  #
+  main:    allow-bean-definition-overriding: true      
