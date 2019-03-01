@@ -82,7 +82,7 @@ public class FormSecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/static/**");
+		web.ignoring().antMatchers("/static/**","/common/**");
 	}
 	
 	/**
@@ -96,7 +96,7 @@ public class FormSecurityConfig extends WebSecurityConfigurerAdapter {
 		 * 
 		 */
 		http.authorizeRequests()
-				.antMatchers("/","/login","/register").permitAll()
+				.antMatchers("/","/login","/register","/static/**","/common/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
 			.formLogin()

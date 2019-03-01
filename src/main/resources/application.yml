@@ -36,7 +36,8 @@ spring:
   groovy:
     template:      cache: false
     
-  devtools:    restart:          exclude: src/main/java,src/main/webapp
+  devtools:    restart:      exclude: src/main/java,src/main/webapp
+      #additional-paths: src/main/java,src/main/webapp    
          #添加那个目录的文件需要restart
     #spring.devtools.restart.additional-paths=src/main/java,src/main/webapp
         #排除那个目录的文件不需要restart 
