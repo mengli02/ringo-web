@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
 import cn.com.ringo.web.entity.system.SysUser;
 import cn.com.ringo.web.service.system.SysUserService;
 import io.swagger.annotations.Api;
@@ -30,7 +32,16 @@ public class SysUserController {
 
 	@Autowired
 	SysUserService sysUserService;
-
+	
+	@RequestMapping("/show-list")
+    public ModelAndView showList() { 
+		ModelAndView mv = new ModelAndView("/system/sysuser/show-list");
+		
+        return mv; 
+    } 
+	
+	
+	
 	/**
 	 * 获取所有用户信息
 	 * @return

@@ -22,12 +22,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		logger.info("username:" + username);
-		//return sysUserService.findByUsername(username);
-		
-		SysUser user = new SysUser();
-		user.setUsername("adc");
-		user.setPassword(new BCryptPasswordEncoder().encode("123456"));
-		return user;
+		return sysUserService.findByUsername(username);
+		/*
+		 * SysUser user = new SysUser(); user.setUsername("admin"); user.setPassword(new
+		 * BCryptPasswordEncoder().encode("123456")); return user;
+		 */
 	}
 
 }

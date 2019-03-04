@@ -1,18 +1,16 @@
 package cn.com.ringo.web.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import cn.com.ringo.web.security.impl.UserDetailsServiceImpl;
 
 /**
  * @author dream.li
@@ -24,35 +22,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled = true)  
 public class FormSecurityConfig extends WebSecurityConfigurerAdapter {
 	
+	
 	@Autowired
-	private UserDetailsService userDetailsService;
-	
-	@Override
-	protected UserDetailsService userDetailsService() {
-		return this.userDetailsService;
-	}
-	
-	@Override
-	protected void finalize() throws Throwable {
-		super.finalize();
-	}
-	
-	/**
-	 * 
-	 */
-	@Override
-	protected AuthenticationManager authenticationManager() throws Exception {
-		return super.authenticationManager();
-	}
-	
-	/**
-	 * 
-	 */
-	@Bean(name = BeanIds.AUTHENTICATION_MANAGER)
-	@Override
-	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
-	}
+	private UserDetailsServiceImpl userDetailsService;
 	
 	/**
 	 * 
@@ -86,15 +58,10 @@ public class FormSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	
 	/**
-	 *  
 	 * 
 	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		/**
-		 * 除了“/”,”/registry”(注册),”/login”(登录),”/logout”(注销),之外，其他路径都需要认证
-		 * 
-		 */
 		http.authorizeRequests()
 				.antMatchers("/","/login","/register","/static/**","/common/**").permitAll()
 				.anyRequest().authenticated()

@@ -5,7 +5,7 @@
 <html lang="en-us" id="extr-page">
 	<head>
 		<meta charset="utf-8">
-		<title>登录</title>
+		<title> SmartAdmin</title>
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -16,6 +16,7 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="${cxt}/static/smart/css/font-awesome.min.css">
 
 		<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+		<link rel="stylesheet" type="text/css" media="screen" href="${cxt}/static/smart/css/smartadmin-production-plugins.min.css">
 		<link rel="stylesheet" type="text/css" media="screen" href="${cxt}/static/smart/css/smartadmin-production.min.css">
 		<link rel="stylesheet" type="text/css" media="screen" href="${cxt}/static/smart/css/smartadmin-skins.min.css">
 
@@ -26,12 +27,15 @@
 		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
 		<link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
 
+		<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
+		<link rel="stylesheet" type="text/css" media="screen" href="${cxt}/static/smart/css/demo.min.css">
+
 		<!-- #FAVICONS -->
 		<link rel="shortcut icon" href="${cxt}/static/smart/img/favicon/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="${cxt}/static/smart/img/favicon/favicon.ico" type="image/x-icon">
 
 		<!-- #GOOGLE FONT -->
-<!-- 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+		<!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
  -->
 		<!-- #APP SCREEN / ICONS -->
 		<!-- Specifying a Webpage Icon for Web Clip 
@@ -60,7 +64,7 @@
 				<span id="logo"> <img src="${cxt}/static/smart/img/logo.png" alt="SmartAdmin"> </span>
 			</div>
 
-			<span id="extr-page-header-space"> <span class="hidden-mobile hidden-xs">Need an account?</span> <a href="register.html" class="btn btn-danger">Create account</a> </span>
+			<span id="extr-page-header-space"> <span class="hidden-mobile hidden-xs">需要创建账户?</span> <a href="${cxt}/register" class="btn btn-danger">创建账号</a> </span>
 
 		</header>
 
@@ -68,6 +72,7 @@
 
 			<!-- MAIN CONTENT -->
 			<div id="content" class="container">
+
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
 						<h1 class="txt-color-red login-header-big">SmartAdmin</h1>
@@ -103,39 +108,39 @@
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
 						<div class="well no-padding">
-							<form action="index.html" id="login-form" class="smart-form client-form">
+							<form action="${cxt}/authentication/login" method="post" id="login-form" class="smart-form client-form">
 								<header>
-									Sign In
+									登 录
 								</header>
 
 								<fieldset>
 									
 									<section>
-										<label class="label">E-mail</label>
+										<label class="label">用户名</label>
 										<label class="input"> <i class="icon-append fa fa-user"></i>
-											<input type="email" name="email">
-											<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Please enter email address/username</b></label>
+											<input type="text" name="username" value="${username}">
+											<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> 输入账户</b></label>
 									</section>
 
 									<section>
-										<label class="label">Password</label>
+										<label class="label">密码</label>
 										<label class="input"> <i class="icon-append fa fa-lock"></i>
-											<input type="password" name="password">
-											<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your password</b> </label>
+											<input type="password" name="password" value="${password}">
+											<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> 输入密码</b> </label>
 										<div class="note">
-											<a href="forgotpassword.html">Forgot password?</a>
+											<a href="${cxt}/static/smart/forgotpassword.html">忘记密码?</a>
 										</div>
 									</section>
 
 									<section>
 										<label class="checkbox">
 											<input type="checkbox" name="remember" checked="">
-											<i></i>Stay signed in</label>
+											<i></i>记住我</label>
 									</section>
 								</fieldset>
 								<footer>
 									<button type="submit" class="btn btn-primary">
-										Sign in
+										登录
 									</button>
 								</footer>
 							</form>
@@ -164,28 +169,66 @@
 
 		<!--================================================== -->	
 
-	    <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-	    <script src="${cxt}/static/smart/js/libs/jquery/2.1.1/jquery.min.js"></script>
-
-		<%-- <script src="${cxt}/static/smart/js/libs/jquery-ui-1.10.3.min.js"></script>
+		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+		<!-- pace加载 - 如果希望显示Ajax加载，请启用此选项(小心：使用设备的大量内存)  -->
+<%-- 		<script src="${cxt}/static/smart/js/plugin/pace/pace.min.js"></script>
  --%>
-		<!-- IMPORTANT: APP CONFIG -->
-		<script src="${cxt}/static/smart/js/app.config.seed.js"></script>
-
-		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events 		
+		<script src="${cxt}/static/smart/js/libs/jquery-2.1.1.min.js"></script>
+		<script src="${cxt}/static/smart/js/libs/jquery-ui-1.10.3.min.js"></script>
+		<script src="${cxt}/static/smart/js/app.config.js"></script>
+		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events 
+		    js触摸：这个插件包含拖曳/下拉触摸事件	
 		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> -->
-
-		<!-- BOOTSTRAP JS -->		
 		<script src="${cxt}/static/smart/js/bootstrap/bootstrap.min.js"></script>
-		
+		<script src="${cxt}/static/smart/js/plugin/jquery-validate/jquery.validate.min.js"></script>
+		<!-- JQUERY MASKED INPUT(屏蔽输入) -->
+		<%-- <script src="${cxt}/static/smart/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+		 --%>
 		<!--[if IE 8]>
 			
-			<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+			<h1>您的浏览器已过期，请访问 www.microsoft.com/download更新您的浏览器</h1>
 			
 		<![endif]-->
 
-		<!-- MAIN APP JS FILE -->
-		<script src="${cxt}/static/smart/js/app.seed.js"></script>
+		<script src="${cxt}/static/smart/js/app.min.js"></script>
+
+		<script type="text/javascript">
+			runAllForms();
+
+			$(function() {
+				// Validation
+				$("#login-form").validate({
+					// Rules for form validation
+					rules : {
+						username : {
+							required : true,
+							minlength : 3
+						},
+						password : {
+							required : true,
+							minlength : 3,
+							maxlength : 20
+						}
+					},
+
+					// Messages for form validation
+					messages : {
+						username : {
+							required : '请输入账户',
+							minlength : '最小长度为3'
+						},
+						password : {
+							required : '请输入密码'
+						}
+					},
+
+					// Do not change code below
+					errorPlacement : function(error, element) {
+						error.insertAfter(element.parent());
+					}
+				});
+			});
+		</script>
 
 	</body>
 </html>
